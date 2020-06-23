@@ -1,6 +1,7 @@
 ﻿using App2.Pages;
 using App2.Services.Account;
 using App2.Services.Navigation;
+using App2.Services.Statements;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -29,7 +30,8 @@ namespace App2.PageModels.Base
 
             // Register Services
             _container.Register<INavigationService, NavigationService>();
-            _container.Register<IAccountService, AccountService>();
+            _container.Register<IAccountService, MockAccountService>();
+            _container.Register<IStatementServices, MockStatementServices>();
         }
 
         public static T Resolve<T>() where T : class

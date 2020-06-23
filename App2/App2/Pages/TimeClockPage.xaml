@@ -18,11 +18,11 @@
                         HorizontalOptions="Center" WidthRequest="200"
                         BackgroundColor="White"/>
                 <StackLayout Orientation="Horizontal">
-                    <Label Text="Start" HorizontalOptions="FillAndExpand" 
+                    <Label Text="Start" HorizontalOptions="CenterAndExpand" 
                            TextColor="White"/>
-                    <Label Text="End" HorizontalOptions="FillAndExpand" 
+                    <Label Text="End" HorizontalOptions="CenterAndExpand" 
                            TextColor="White"/>
-                    <Label Text="Total" HorizontalOptions="FillAndExpand"
+                    <Label Text="Total" HorizontalOptions="CenterAndExpand"
                            TextColor="White"/>
                 </StackLayout>
             </StackLayout>
@@ -32,9 +32,15 @@
                     <DataTemplate>
                         <ViewCell>
                             <StackLayout Orientation="Horizontal">
-                                <Label Text="{Binding Start, StringFormat='{}{0:h:mm:ss tt}'}" HorizontalOptions="CenterAndExpand" />
-                                <Label Text="{Binding End, StringFormat='{}{0:h:mm:ss tt}}'}" HorizontalOptions="CenterAndExpand" />
-                                <Label Text="{Binding Total, StringFormat='{}{0:h\\:mm\\:ss tt}'}" HorizontalOptions="CenterAndExpand"/>
+                                <Label Text="{Binding Start, StringFormat='{}{0:h:mm:ss tt}'}"
+                                        HorizontalOptions="CenterAndExpand"
+                                        VerticalOptions="CenterAndExpand" />
+                                <Label Text="{Binding End, StringFormat='{}{0:h:mm:ss tt}'}"
+                                        HorizontalOptions="CenterAndExpand"
+                                        VerticalOptions="CenterAndExpand" />
+                                <Label Text="{Binding Total, StringFormat='{}{0:h\\:mm\\:ss}'}"
+                                        HorizontalOptions="CenterAndExpand"
+                                        VerticalOptions="CenterAndExpand" />
                             </StackLayout>
                         </ViewCell>
                     </DataTemplate>
@@ -42,7 +48,7 @@
             </ListView>
 
             <StackLayout BackgroundColor="Green">
-                <Label Text="{Binding TodaysEarning, StringFormat='Earned today: {0}'}"
+                <Label Text="{Binding TodaysEarning, StringFormat='Earned today: {0:C}'}"
                        HorizontalOptions="Center"
                        TextColor="White"/>
 

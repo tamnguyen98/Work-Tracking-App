@@ -7,9 +7,41 @@
              x:Class="App2.Pages.SummaryPage">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+            <!-- This Pay period overview-->
+            <Frame>
+                <StackLayout>
+                    <Label Text="Current Pay Period Estimate" />
+                    <Label Text="{Binding CurrentPayDateRange}"/>
+                    <Label Text="{Binding CurrentPeriodEarning, StringFormat='{}{0:c}}'}"/>
+                </StackLayout>
+            </Frame>
+            <!--Next Pay date-->
+            <Frame>
+                <StackLayout>
+                    <Label Text="This Period's Payment"/>
+                    <Label Text="{Binding CurrentPeriodPayDate}"/>
+                </StackLayout>
+            </Frame>
+            <!--previous Pay-->
+            <Frame>
+                <StackLayout>
+                    <Label Text="Statements"/>
+                    <ListView ItemsSource="{Binding Statements}">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <StackLayout Orientation="Horizontal">
+                                        <Label Text="{Binding Date}"
+                                               HorizontalOptions="StartAndExpand"/>
+                                        <Label Text="{Binding Earning}"
+                                               HorizontalOptions="End"/>
+                                    </StackLayout>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </StackLayout>
+            </Frame>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
